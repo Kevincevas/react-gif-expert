@@ -1,6 +1,8 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 export const AddCategory = ( {onNewCategory} ) => {
+  
   const [inputValue, setInputValue] = useState('');
 
   //funcion para que cambie el valor del input
@@ -24,7 +26,7 @@ export const AddCategory = ( {onNewCategory} ) => {
   }
 
   return (
-      <form action="" onSubmit={(event) => onSubmit(event)}>
+      <form action="" onSubmit={(event) => onSubmit(event)} aria-label='form'> 
         <input
           type="text"
           placeholder="Buscar Gifs"
@@ -37,3 +39,8 @@ export const AddCategory = ( {onNewCategory} ) => {
 
   );
 };
+
+//cuando necesitamos que la property siempre sea proporcionada
+AddCategory.propTypes = {
+  onNewCategory: PropTypes.func.isRequired,
+}
